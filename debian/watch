@@ -1,0 +1,4 @@
+version=4
+opts="filenamemangle=s%(?:.*?)?v?(\d[\d.]*)\.tar\.gz%trimage-$1.tar.gz%" \
+   https://github.com/Kilian/Trimage/tags \
+   (?:.*?/)?v?(\d[\d.]*)\.tar\.gz debian uupdate

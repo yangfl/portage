@@ -1,0 +1,42 @@
+Source: portage
+Maintainer: Yangfl <mmyangfl@gmail.com>
+Section: graphics
+Priority: optional
+Build-Depends:
+ debhelper (>= 12~),
+ dh-python,
+ python3,
+ python3-setuptools,
+ xmlto,
+Standards-Version: 4.3.0
+Vcs-Browser: https://salsa.debian.org/yangfl-guest/portage
+Vcs-Git: https://salsa.debian.org/yangfl-guest/portage.git
+Homepage: https://wiki.gentoo.org/wiki/Project:Portage
+
+Package: portage
+Architecture: all
+Depends:
+ ${misc:Depends},
+ ${python3:Depends},
+Suggests: portage-doc
+Description: GUI and command-line interface to optimize image files
+ Trimage is a cross-platform GUI and command-line interface to optimize image
+ files via optipng, advpng, pngcrush and jpegoptim, depending on the filetype
+ (currently, PNG and JPG files are supported). All image files are losslessly
+ compressed on the highest available compression levels. Trimage gives you
+ various input functions to fit your own workflow: A regular file dialog,
+ dragging and dropping and various command line options.
+
+Package: portage-doc
+Architecture: all
+Depends: ${misc:Depends}
+Section: doc
+Multi-Arch: foreign
+Description: documentation for io language
+ The ideas in Io are mostly inspired by Smalltalk (all values are objects),
+ Self (prototype-based), NewtonScript (differential inheritance), Act1 (actors
+ and futures for concurrency), LISP (code is a runtime inspectable/modifiable
+ tree) and Lua (small, embeddable).
+ .
+ This package contains the documentation in HTML format.
+

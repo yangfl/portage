@@ -1,0 +1,27 @@
+#!/usr/bin/make -f
+
+export PYBUILD_INSTALL_ARGS = --docdir /usr/share/doc/portage
+
+%:
+	dh $@ --with python3 --buildsystem pybuild
+
+override_dh_auto_build:
+	dh_auto_build
+	python3 setup.py docbook
+
+override_dh_auto_test:
+	true
+
+override_dh_auto_install:
+	dh_auto_install
+	for i in $$(find bin -type l); do \
+		cp -d $$i debian/tmp/usr/lib/portage/$$(dirname $$i); \
+	done
+
+override_dh_python3:
+# I don't know why sh files are named .so
+	mv debian/portage/usr/lib/portage/bin/ebuild-helpers/dolib.so debian/portage/usr/lib/portage/bin/ebuild-helpers/dolib.so.bak
+	mv debian/portage/usr/lib/portage/bin/ebuild-helpers/newlib.so debian/portage/usr/lib/portage/bin/ebuild-helpers/newlib.so.bak
+	dh_python3
+	mv debian/portage/usr/lib/portage/bin/ebuild-helpers/dolib.so.bak debian/portage/usr/lib/portage/bin/ebuild-helpers/dolib.so
+	mv debian/portage/usr/lib/portage/bin/ebuild-helpers/newlib.so.bak debian/portage/usr/lib/portage/bin/ebuild-helpers/newlib.so

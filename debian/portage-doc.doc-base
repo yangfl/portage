@@ -1,0 +1,12 @@
+Document: portage
+Title: Debian io Manual
+Author: Io Language Team <iolanguage@yahoogroups.com>
+Abstract: The ideas in Io are mostly inspired by Smalltalk (all values are
+ objects), Self (prototype-based), NewtonScript (differential inheritance),
+ Act1 (actors and futures for concurrency), LISP (code is a runtime
+ inspectable/modifiable tree) and Lua (small, embeddable).
+Section: Programming
+
+Format: HTML
+Index: /usr/share/doc/portage/html/index.html
+Files: /usr/share/doc/portage/html/*.html
